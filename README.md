@@ -1,9 +1,9 @@
 # TapoPlugAPI
 
-Tapo Plug Api is a python warper that can be easily be integrated in any project to control the TP-Link Tapo P100 and P105 plugs.
+Tapo Plug Api is a python warper that can be easily integrated in any project to control the TP-Link Tapo P100 and P105 plugs.
 
 The endpoints of the plug were discovered after a reverse engineering of the firmware Tapo 1.3.2 Build 20210122 Rel.
-Other endpoints not exploited still need to be integrated in this library, but due to lack of information of which parameter to use for each requests I could'n integrate them now (the full list of the endpoints after the examples).
+Other endpoints, not exploited, still need to be integrated in this library, but due to lack of information of which parameter to use for each requests I could'n integrate them now (the full list of the endpoints after the examples).
 
 If you also want to have fun with the firmware, the link is also below after the examples.
 
