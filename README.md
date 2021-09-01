@@ -31,7 +31,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getDeviceInfo(device)
+response = tapoPlugApi.getDeviceInfo(device)
 print(response)
 ```
 
@@ -46,7 +46,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getDeviceRunningInfo(device)
+response = tapoPlugApi.getDeviceRunningInfo(device)
 print(response)
 ```
 
@@ -61,7 +61,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.plugOn(device)
+response = tapoPlugApi.plugOn(device)
 print(response)
 ```
 * Turn OFF the plug.
@@ -75,7 +75,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.plugOff(device)
+response = tapoPlugApi.plugOff(device)
 print(response)
 ```
 
@@ -90,7 +90,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getPlugUsage(device)
+response = tapoPlugApi.getPlugUsage(device)
 print(response)
 ```
 
@@ -106,7 +106,7 @@ device = {
     "nickname": "My Awesome Plug!",
 }
   
-response = tapoApi.setNickname(device)
+response = tapoPlugApi.setNickname(device)
 print(response)
 ```
 
@@ -121,7 +121,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.ledOff(device)
+response = tapoPlugApi.ledOff(device)
 print(response)
 ```
 
@@ -136,7 +136,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.ledOn(device)
+response = tapoPlugApi.ledOn(device)
 print(response)
 ```
 * Get LED status (ON/OFF).
@@ -149,7 +149,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getLedInfo(device)
+response = tapoPlugApi.getLedInfo(device)
 print(response)
 ```
 
@@ -164,7 +164,7 @@ device = {
     "delay":60 #seconds
 }
   
-response = tapoApi.plugOffCountdown(device)
+response = tapoPlugApi.plugOffCountdown(device)
 print(response)
 ```
 
@@ -179,7 +179,7 @@ device = {
     "delay":60 #seconds
 }
   
-response = tapoApi.plugOnCountdown(device)
+response = tapoPlugApi.plugOnCountdown(device)
 print(response)
 ```
 
@@ -193,7 +193,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getDiagnoseStatus(device)
+response = tapoPlugApi.getDiagnoseStatus(device)
 print(response)
 ```
 
@@ -207,7 +207,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.getPlugLog(device)
+response = tapoPlugApi.getPlugLog(device)
 print(response)
 ```
 
@@ -221,7 +221,7 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-response = tapoApi.qsComponentNego(device)
+response = tapoPlugApi.qsComponentNego(device)
 print(response)
 ```
 
