@@ -31,8 +31,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getDeviceInfo(device)
-  print(response)
+response = tapoApi.getDeviceInfo(device)
+print(response)
 ```
 
 * Get device running information
@@ -46,8 +46,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getDeviceRunningInfo(device)
-  print(response)
+response = tapoApi.getDeviceRunningInfo(device)
+print(response)
 ```
 
 * Turn ON the plug.
@@ -61,8 +61,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.plugOn(device)
-  print(response)
+response = tapoApi.plugOn(device)
+print(response)
 ```
 * Turn OFF the plug.
 
@@ -75,8 +75,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.plugOff(device)
-  print(response)
+response = tapoApi.plugOff(device)
+print(response)
 ```
 
 * Get plug time usage.
@@ -90,8 +90,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getPlugUsage(device)
-  print(response)
+response = tapoApi.getPlugUsage(device)
+print(response)
 ```
 
 * Change plug alias.
@@ -106,8 +106,8 @@ device = {
     "nickname": "My Awesome Plug!",
 }
   
-  response = tapoApi.setNickname(device)
-  print(response)
+response = tapoApi.setNickname(device)
+print(response)
 ```
 
 * Turn OFF the LED.
@@ -121,8 +121,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.ledOff(device)
-  print(response)
+response = tapoApi.ledOff(device)
+print(response)
 ```
 
 * Turn ON the LED.
@@ -136,8 +136,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.ledOn(device)
-  print(response)
+response = tapoApi.ledOn(device)
+print(response)
 ```
 * Get LED status (ON/OFF).
 ```python
@@ -149,8 +149,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getLedInfo(device)
-  print(response)
+response = tapoApi.getLedInfo(device)
+print(response)
 ```
 
 * Automatically turns OFF the device when the provided delay is expired.
@@ -164,8 +164,8 @@ device = {
     "delay":60 #seconds
 }
   
-  response = tapoApi.plugOffCountdown(device)
-  print(response)
+response = tapoApi.plugOffCountdown(device)
+print(response)
 ```
 
 * Automatically turns ON the device when the provided delay is expired.
@@ -179,8 +179,8 @@ device = {
     "delay":60 #seconds
 }
   
-  response = tapoApi.plugOnCountdown(device)
-  print(response)
+response = tapoApi.plugOnCountdown(device)
+print(response)
 ```
 
 * Get some diagnostic information's.
@@ -193,8 +193,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getDiagnoseStatus(device)
-  print(response)
+response = tapoApi.getDiagnoseStatus(device)
+print(response)
 ```
 
 * Should get device log, but always empty for me, I leave it here just in case...
@@ -207,8 +207,8 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.getPlugLog(device)
-  print(response)
+response = tapoApi.getPlugLog(device)
+print(response)
 ```
 
 * Can't really tell for what this id used for now.
@@ -221,9 +221,13 @@ device = {
     "tapoPassword": "ENTER YOUR TP-LINK PWD"
 }
   
-  response = tapoApi.qsComponentNego(device)
-  print(response)
+response = tapoApi.qsComponentNego(device)
+print(response)
 ```
+
+### Full endpoints list:
+
+Here are all enpoints used by Tapo P105 found in the firmware.
 
 Endpoints List         | Endpoints List         |
 -------------| -----------|
@@ -261,11 +265,13 @@ add_antitheft_rule |  set_inherit_info |
 edit_antitheft_rule |  get_inherit_info|
 exec_atcmd |  I think the function exec_atcmd is one of the most interesting because the function name mean it is possible to send AT commands directly to the device, in theory. I've tried everything but nothing worked... In any case all the compatible AT commands are also listed in the firmware, if someone can find how to use it... PLEASE ping me!|
 
+### Tapo firmware:
 
 Tapo P105 1.3.2 firmware:
 http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_1615802824400.bin
+
 ### Building modules:
 
 * To build a package to install via `pip` or `easy_install`, execute:
     * `python setup.py sdist`
-* The resulting build will be in `$PWD/dist/Netsparker_Rest_API-<version>.tar.gz`
+* The resulting build will be in `$PWD/dist/tapo_plug-<version>.tar.gz`
