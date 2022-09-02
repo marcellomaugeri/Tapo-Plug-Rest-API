@@ -113,6 +113,21 @@ def getPlugUsage(deviceInfo):
   response = execRequest(deviceInfo, keys, data)
   return response
 
+'''
+Get plug energy usage.
+'''
+def getPlugEnergyUsage(deviceInfo):
+  keys = loadKeys(deviceInfo)
+  deviceID = json.loads(getDeviceInfo(deviceInfo))['result']['device_id']
+
+  data = {
+    "method": "get_energy_usage",
+    "requestTimeMils":0,
+    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+  }
+
+  response = execRequest(deviceInfo, keys, data)
+  return response
 
 '''
 Can't really tell for what this used for now.
