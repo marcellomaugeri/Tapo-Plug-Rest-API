@@ -10,6 +10,7 @@ import json
 import time
 from .tapoEncryption import generateKeyPair, decodeTapoKey, shaDigestEmail, encryptJsonData, decryptJsonData
 
+uuid = "AA3512F85D2C603C3434C5BD9EA95B43"
 
 '''
 Get device information
@@ -20,7 +21,7 @@ def getDeviceInfo(deviceInfo):
   data = {
     "method": "get_device_info",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -36,7 +37,7 @@ def getDeviceRunningInfo(deviceInfo):
   data = {
     "method": "get_device_running_info",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -55,7 +56,7 @@ def plugOn(deviceInfo):
       "device_on": True
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -74,7 +75,7 @@ def plugOff(deviceInfo):
       "device_on": False,
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -90,7 +91,7 @@ def getDiagnoseStatus(deviceInfo):
   data = {
     "method": "get_diagnose_status",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -107,7 +108,7 @@ def getPlugUsage(deviceInfo):
   data = {
     "method": "get_device_usage",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -123,7 +124,7 @@ def getPlugEnergyUsage(deviceInfo):
   data = {
     "method": "get_energy_usage",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
 
   response = execRequest(deviceInfo, keys, data)
@@ -142,7 +143,7 @@ def qsComponentNego(deviceInfo):
        "device_id":deviceID,
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -163,7 +164,7 @@ def setNickname(deviceInfo):
       "nickname": deviceInfo['nickname'],
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -179,7 +180,7 @@ def getLedInfo(deviceInfo):
   data = {
     "method": "get_led_info",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -206,7 +207,7 @@ def ledOff(deviceInfo):
         }
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   response = execRequest(deviceInfo, keys, data)
   return response
@@ -232,10 +233,46 @@ def ledOn(deviceInfo):
         }
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
+  return response
+
+
+'''
+Edits a countdown rule on the device. 
+
+The provided params value should be a countdown rule object to modify, 
+e.g. a modified item returned by plugGetCountdownRules().
+'''
+def editCountdown(device_info):
+  keys = loadKeys(device_info)
+
+  data = {
+    "method": "edit_countdown_rule",
+    "params": device_info['params'],
+    "requestTimeMils": 0,
+    "terminalUUID": uuid,
+  }
+
+  response = execRequest(device_info, keys, data)
+  return response
+
+
+'''
+Lists all countdown rules on the device.
+'''
+def getCountdownRules(device_info):
+  keys = loadKeys(device_info)
+
+  data = {
+    "method": "get_countdown_rules",
+    "requestTimeMils": 0,
+    "terminalUUID": uuid,
+  }
+
+  response = execRequest(device_info, keys, data)
   return response
 
 
@@ -256,7 +293,7 @@ def plugOffCountdown(deviceInfo):
       "remain":int(deviceInfo['delay'])
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -280,7 +317,7 @@ def plugOnCountdown(deviceInfo):
       "remain":int(deviceInfo['delay'])
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   response = execRequest(deviceInfo, keys, data)
   return response
@@ -295,7 +332,7 @@ def getPlugLog(deviceInfo):
   data = {
     "method": "get_device_log",
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -314,7 +351,7 @@ def getWirelessScanInfo(deviceInfo):
       "start_index":0
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
   
   response = execRequest(deviceInfo, keys, data)
@@ -347,9 +384,9 @@ def setWirelessInfo(deviceInfo):
       }
     },
     "requestTimeMils":0,
-    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+    "terminalUUID": uuid,
   }
-  return data
+
   response = execRequest(deviceInfo, keys, data)
   return response
 
