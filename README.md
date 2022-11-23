@@ -2,23 +2,16 @@
 
 Tapo Plug Api is a python wrapper that can be easily integrated in any project to control the TP-Link Tapo P100 and P105 plugs.
 This repo is a fork of the original [TapoPlugAPI](https://gitlab.com/0xSamy/TapoPlug-Rest-API)
+
 ![TP-Link Tapo API](https://i.ibb.co/vvg3FT8/Tapo-Plug-API-naqwada.jpg)
 
 All endpoints integrated in this package were discovered after a reverse engineering of the firmware Tapo P105, 1.3.2 Build 20210122 Rel.
 However, due to a lack of information about which parameters to use for each request, other endpoints not exploited yet still need to be added in this package. If you are interested, the full endpoints list are listed below after the examples.
-
-Also, If you want to have fun with the firmware, the link is also below after the examples.
-
-[![PyPI Version](https://badge.fury.io/py/netsparker-api.svg)](https://pypi.python.org/pypi/tapo_plug)
+This fork provides the possibility to define a custom JSON request to send to the plug. This is useful if you want to use an endpoint that is not yet implemented in this package.
 ### Dependencies:
 * Python 3.3+
 * requests module (install via pip)
 * The dependencies can be satisfied via `pip install -r requirements.txt`
-
-### Quick Install
-```
-pip install tapo-plug
-```
 
 ### Endpoints:
 
@@ -303,11 +296,11 @@ exec_atcmd |  I think the function exec_atcmd is one of the most interesting bec
 
 ### Tapo firmware:
 
-Tapo P105 1.3.2 firmware:<br>
-http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_1615802824400.bin<br><br>
+[Tapo P105 1.3.2 firmware](http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_1615802824400.bin)<br>
 
-[2022-05-30] Update - Tapo P105 1.3.3 firmware has been released:<br>
-http://download.tplinkcloud.com/firmware/P105_1-3-320220311-rel61171_2022-04-12_11.04.5_1653890825333.bin
+[Tapo P105 1.3.3 firmware](http://download.tplinkcloud.com/firmware/P105_1-3-320220311-rel61171_2022-04-12_11.04.5_1653890825333.bin)<br>
+
+[Tapo P110 1.1.2 firmware](https://download.tplinkcloud.com/firmware/P110_UN_1.1.2_Build_220930_Rel.144500_2022-09-_1666144386617.bin)<be>
 ```json
 {
   "error_code": 0,
