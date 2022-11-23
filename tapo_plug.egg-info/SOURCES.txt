@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 tapo_plug/__init__.py
