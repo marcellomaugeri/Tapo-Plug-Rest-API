@@ -9,8 +9,34 @@ import base64
 import json
 import time
 from .tapoEncryption import generateKeyPair, decodeTapoKey, shaDigestEmail, encryptJsonData, decryptJsonData
+import json
+import string
+import random
 
 uuid = "AA3512F85D2C603C3434C5BD9EA95B43"
+
+'''
+Print the whole POST request
+'''
+def prettify_POST(req):
+  return '{}\r\n{}\r\n\r\n{}'.format(
+    req.method + ' ' + req.url,
+    '\r\n'.join('{}: {}'.format(k, v) for k, v in req.headers.items()),
+    req.body,
+  )
+
+'''
+Send custom payload
+'''
+
+def send(payload, deviceInfo):
+  keys = loadKeys(deviceInfo)
+  f = open(payload, "r")
+  data = json.load(f)
+  f.close()
+  response = execRequest(deviceInfo, keys, data)
+  return response
+
 
 '''
 Get device information
@@ -58,7 +84,8 @@ def plugOn(deviceInfo):
     "requestTimeMils":0,
     "terminalUUID": uuid,
   }
-  
+  with open('json/turnOn.json', 'w') as convert_file:
+    convert_file.write(json.dumps(data))
   response = execRequest(deviceInfo, keys, data)
   return response
 
@@ -444,7 +471,6 @@ def loginRequest(deviceInfo, decodedTapoKey, tapoCookie):
   }
 
   response = requests.post("http://{}/app".format(deviceInfo['tapoIp']), cookies=cookies, data=json.dumps(secureData), verify=False)
-
   if response.status_code != 200:
     error = {
       "code": response.status_code,
@@ -461,6 +487,13 @@ def loginRequest(deviceInfo, decodedTapoKey, tapoCookie):
 Encrypt json data and send request to the app.
 '''
 def execRequest(deviceInfo, keys, data):
+  random_id = ''.join(random.choice(string.ascii_lowercase) for i in range(10))
+  print("Random ID: {}".format(random_id))
+
+  log_file = open("/tmp/{}".format(random_id), "a")
+  log_file.write("Raw request:\n")
+  log_file.write(json.dumps(data))
+  
   encyptedJsonData = encryptJsonData(keys['decodedTapoKey'], json.dumps(data))
   secureData = {
     "method":"securePassthrough",
@@ -469,12 +502,17 @@ def execRequest(deviceInfo, keys, data):
       }
   }
 
+  log_file.write("\n\nEncrypted request:\n")
+  log_file.write(json.dumps(secureData))
+
   cookies = {
     keys['tapoCookie'][0] : keys['tapoCookie'][1],
   }
   
   response = requests.post("http://{}/app?token={}".format(deviceInfo['tapoIp'],keys['tapoAuthToken']), cookies=cookies, data=json.dumps(secureData), verify=False)
-  
+
+  log_file.write("\n\nPOST Request:\n")
+  log_file.write(prettify_POST(response.request))
   if response.status_code != 200:
     error = {
       "code": response.status_code,
