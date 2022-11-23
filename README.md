@@ -1,7 +1,7 @@
 # TapoPlugAPI
 
 Tapo Plug Api is a python wrapper that can be easily integrated in any project to control the TP-Link Tapo P100 and P105 plugs.
-
+This repo is a fork of the original [TapoPlugAPI](https://gitlab.com/0xSamy/TapoPlug-Rest-API)
 ![TP-Link Tapo API](https://i.ibb.co/vvg3FT8/Tapo-Plug-API-naqwada.jpg)
 
 All endpoints integrated in this package were discovered after a reverse engineering of the firmware Tapo P105, 1.3.2 Build 20210122 Rel.
