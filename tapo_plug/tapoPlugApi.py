@@ -31,10 +31,7 @@ Send custom payload
 
 def send(payload, deviceInfo):
   keys = loadKeys(deviceInfo)
-  f = open(payload, "r")
-  data = json.load(f)
-  f.close()
-  response = execRequest(deviceInfo, keys, data)
+  response = execRequest(deviceInfo, keys, payload)
   return response
 
 
