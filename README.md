@@ -300,7 +300,10 @@ exec_atcmd |  I think the function exec_atcmd is one of the most interesting bec
 
 [Tapo P105 1.3.3 firmware](http://download.tplinkcloud.com/firmware/P105_1-3-320220311-rel61171_2022-04-12_11.04.5_1653890825333.bin)<br>
 
-[Tapo P110 1.1.2 firmware](https://download.tplinkcloud.com/firmware/P110_UN_1.1.2_Build_220930_Rel.144500_2022-09-_1666144386617.bin)<be>
+[Tapo P110 1.1.2 firmware](https://download.tplinkcloud.com/firmware/P110_UN_1.1.2_Build_220930_Rel.144500_2022-09-_1666144386617.bin)<br>
+
+[Tapo P110 1.2.3 firmware](http://download.tplinkcloud.com/firmware/P110_UN_1.2.3_Build_230425_Rel.142542_2023-04-25_14.27.58_1687135951138.bin)<br>
+
 ```json
 {
   "error_code": 0,
